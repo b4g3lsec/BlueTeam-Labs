@@ -36,11 +36,11 @@ On March 24, 2026, a phishing campaign was identified targeting Italian WhatsApp
 
 ## 3.1 Anti-Analysis & Cloaking
 
-Initial reconnaissance using standard CLI tools (curl) and automated sandboxes (urlscan) resulted in 404 Not Found and 429 Too Many Requests errors. No malicious flagging (VirusTotal).
+Initial reconnaissance using standard CLI tools (curl; even with various User-Agent strings) and automated sandboxes (urlscan) resulted in 404 Not Found and 429 Too Many Requests errors. No malicious flagging (VirusTotal).
 
-Observation: The attacker employs Environment Keying. The server inspects the User-Agent and ppossibly the source IP.
+Observation: The attacker employs Environment Keying. Needs further investigation on how the fingerprinting is achieved.
 
-Bypass: Successful detonation was achieved using a cloud-based mobile browser emulator (Browserling), confirming the site only serves malicious content to mobile-matching signatures. (Android 15 and iOS 18 tested)
+Bypass: Successful detonation was achieved using a cloud-based mobile browser emulator (Browserling), confirming the site only serves malicious content to mobile-matching signatures. (Android 15, iOS 18, Windows 10 tested)
 
 
 ## 3.2 Attack Vector: QRLJacking / GhostPairing
@@ -86,7 +86,7 @@ _Mechanism_: This is an Adversary-in-the-Middle (AitM) attack. The phishing kit 
 - User Training: Educate users to never use QR codes and other pairing methods with 3rd-party websites.
 
 # 6. Lessons Learned
-- Cloaking Awareness: Simple CLI tools, like curl without User-Agent spoofing are easily defeated by modern phishing kits.
+- Cloaking Awareness: Simple User-Agent obfuscation is easily defeated.
 
 - OPSEC: Initial recon was performed from a non-attributed IP address. Future investigations should utilize dedicated VPNs/Dirty Lines to prevent analyst IP exposure to the adversary's logs.
 
