@@ -10,7 +10,7 @@
 
 # 1. Executive Summary
 
-On March 24, 2026, a phishing campaign was identified targeting Italian WhatsApp users via a "Social Voting" lure. The attack utilizes a sophisticated phishing kit hosted on the domain `iuyrdadvc.click`. The objective is to hijack active user sessions by abusing the "Linked Devices" feature, bypassing traditional Multi-Factor Authentication (MFA).
+On March 24, 2026, a phishing campaign was identified targeting Italian WhatsApp users via a "Social Voting" lure. The attack utilizes a sophisticated phishing kit hosted on the domain `iuyrdadvc[.]click`. The objective is to hijack active user sessions by abusing the "Linked Devices" feature, bypassing traditional Multi-Factor Authentication (MFA).
 
 
 # 2. Incident Details
@@ -21,9 +21,9 @@ On March 24, 2026, a phishing campaign was identified targeting Italian WhatsApp
 
 - Observed URL: `hxxps[://]iuyrdadvc[.]click/home/voteеtor`
 
-- Destination IP: 104[.]21[.]52[.]156
+- Destination IP: `104[.]21[.]52[.]156`
 
-- Target Domain: iuyrdadvc.click
+- Target Domain: iuyrdadvc[.]click
 
 - Infrastructure: Cloudflare (utilizing Evasion/Cloaking).
 
@@ -36,7 +36,7 @@ On March 24, 2026, a phishing campaign was identified targeting Italian WhatsApp
 
 ## 3.1 Anti-Analysis & Cloaking
 
-Initial reconnaissance using standard CLI tools (curl) and automated sandboxes (urlscan.io) resulted in 404 Not Found and 429 Too Many Requests errors. No malicious flagging (VirusTotal).
+Initial reconnaissance using standard CLI tools (curl) and automated sandboxes (urlscan) resulted in 404 Not Found and 429 Too Many Requests errors. No malicious flagging (VirusTotal).
 
 Observation: The attacker employs Environment Keying. The server inspects the User-Agent and ppossibly the source IP.
 
@@ -46,10 +46,15 @@ Bypass: Successful detonation was achieved using a cloud-based mobile browser em
 ## 3.2 Attack Vector: QRLJacking / GhostPairing
 
 The site presents a landing page in Italian: "Finale del concorso della scuola NG. Scegliete la migliore esibizione" with images of two female chilrens
+
 ![Land Page](images/1landpage.jpg)
+
 After you select one: "Per combattere la falsificazione dei voti è necessario superare la verifica tramite codice."
+
 ![Select](images/2selection.jpg)
+
 And continuing redirects to `/login/zomia-number`
+
 ![Redir Link](images/3redirlink.jpg)
 ![Redir Num](images/4redirpagenum.jpg)
 ![Redir QR](images/5redirpageqr.jpg)
@@ -58,7 +63,7 @@ The site offers two exploitation paths:
 
 QR Code Injection: The site displays a QR code that is a real-time proxy of a WhatsApp Web pairing code.
 
-Phone Number Pairing: The site requests the victim's phone number and displays a 6/8-digit code.
+Phone Number Pairing: The site requests the victim's phone number and displays a 6-digit code.
 
 _Mechanism_: This is an Adversary-in-the-Middle (AitM) attack. The phishing kit acts as a bridge between the victim and the legitimate WhatsApp servers. Once the victim enters the code or scans the QR, the attacker's server captures the `session_id` and `secret tokens`, granting persistent access to the account.
 
