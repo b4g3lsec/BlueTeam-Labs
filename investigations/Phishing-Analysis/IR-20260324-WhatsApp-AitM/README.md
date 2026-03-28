@@ -40,7 +40,7 @@ Initial reconnaissance using standard CLI tools (curl; even with various User-Ag
 
 Observation: The attacker employs Environment Keying. Needs further investigation on how the fingerprinting is achieved.
 
-Bypass: Successful detonation was achieved using a cloud-based mobile browser emulator (Browserling), confirming the site only serves malicious content to mobile-matching signatures. (Android 15, iOS 18, Windows 10 tested)
+Bypass: Successful detonation was achieved using a cloud-based browser emulator (Browserling), confirming the site only serves malicious content to matching signatures. (Android 15, iOS 18, Windows 10 tested)
 
 
 ## 3.2 Attack Vector: QRLJacking / GhostPairing
