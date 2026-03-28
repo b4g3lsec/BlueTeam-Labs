@@ -73,7 +73,6 @@ _Mechanism_: This is an Adversary-in-the-Middle (AitM) attack. The phishing kit 
 | Type       | Value              | Notes                        |
 | ---------- | ------------------ | ---------------------------- |
 | Domain     | iuyrdadvc[.]click    | Phishing Landing Page        | 
-| Registrar  | www[.]dynadot[.]com    |                |
 | IP Address | 104[.]21[.]52[.]156      | Cloudflare Edge IP           |
 | Tactic     | Social Engineering | "Dancing opportunity voting" |
 
