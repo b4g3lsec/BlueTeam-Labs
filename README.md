@@ -8,6 +8,7 @@ analysis/findings/IRs
 The lab is structured as an attack-defence sandbox.
 
 | **Node** | **Role** | **Description** |
+| ---- | ---- | ----------- |
 | Victim | The Target | This is the primary source of telemetry sent to the SIEM. |
 | Attacker | Threat Actor | Host running a VM for offensive testing. | 
 | SIEM  | Central Log Management | Collects, analyzes and alerts on data received from the sensors. |
@@ -28,6 +29,8 @@ The lab is structured as an attack-defence sandbox.
 - Remote Access: OpenSSH (Access to the nodes with key based authentication only)
 
 ### Offensive tools
+...
+
 
 ### Repository File Structure
 
